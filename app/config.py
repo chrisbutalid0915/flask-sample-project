@@ -14,8 +14,8 @@ class Config:
     # SQLALCHEMY_DATABASE_URI = f"sqlite:///{BASE_DIR}/{DATABASE_NAME}.sqlite3" # SQLite
     SQLALCHEMY_DATABASE_URI = "postgresql+psycopg2://postgres:password@postgres:5432/app_db" # postgreSQL
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    JWT_SECRET_KET = "a3f9b74e8c6d0e2a92e90118d7c19e85"  # Configure SECRET KEY
-
+    JWT_SECRET_KEY = "a3f9b74e8c6d0e2a92e90118d7c19e85"  # Configure SECRET KEY
+    ALGORITHM="HS256"
     # Load in enviornemnt variables
     TESTING = True
     FLASK_DEBUG = True
