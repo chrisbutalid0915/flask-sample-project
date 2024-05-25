@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    command: sh -c "flask run --host=0.0.0.0"
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    restart: unless-stopped
+    
+
+  postgres:
+    image: postgres:15
+    container_name: flask_postgres_db
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=app_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg-volume:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  pg-volume:
